@@ -1,4 +1,6 @@
 ﻿
+using ProjetoListaFelipe.Models;
+
 bool cotinuidade = true;
 
 while (cotinuidade)
@@ -20,6 +22,10 @@ while (cotinuidade)
 
         Console.WriteLine("Qual seria a descrição da tarefa:");
         string descricao = Console.ReadLine();
+
+        Tarefa tarefa = new Tarefa();
+        tarefa.CadastrarTarefa(titulo, descricao);
+
 
     }
 
