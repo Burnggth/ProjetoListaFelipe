@@ -7,6 +7,7 @@ public class Tarefa
     public bool Concluida;
 
     private string caminhoTarefa1 = "tarefa1.json";
+    private Tarefa tarefa1;
 
     private JsonSerializerOptions options = new JsonSerializerOptions()
     {
@@ -30,5 +31,54 @@ public class Tarefa
         Console.WriteLine("Tarefa Cadastrada com SUCESS!");
 
     }
+
+
+    public void ListarTarefa()
+    {
+        if (tarefa1 == null)
+        {
+            Console.WriteLine("Tarefa1: vazia");
+            Console.WriteLine();
+        }
+
+        else
+        {
+            Console.WriteLine("Tarefa1:");
+            Console.WriteLine("Titulo: " + tarefa1.Titulo);
+            Console.WriteLine("Titulo:" + tarefa1.Descricao);
+            string status;
+
+            if (tarefa1.Concluida)
+            {
+                status = "Concluida";
+            }
+
+            else
+            {
+                status = "Pendente";
+            }
+
+        }
+
+        Console.ReadLine();
+    }
+
+
+    public void CarregarDoJson()
+    {
+        if (File.Exists(caminhoTarefa1))
+        {
+            string json = File.ReadAllText(caminhoTarefa1);
+            tarefa1 = JsonSerializer.Deserialize<Tarefa>(json, options);
+        }
+
+        else
+        {
+            tarefa1 = null;
+        }
+    }
+
+    
+
 }
 

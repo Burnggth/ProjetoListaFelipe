@@ -2,9 +2,13 @@
 using ProjetoListaFelipe.Models;
 
 bool cotinuidade = true;
+Tarefa tarefa = new Tarefa();
+tarefa.CarregarDoJson();
+
 
 while (cotinuidade)
 {
+    Console.Clear();
     Console.WriteLine("== Sistema de Tarefas - turma 3B==");
     Console.WriteLine("1 - Cadastrar Tarefa");
     Console.WriteLine("2 - Listar Tarrefas");
@@ -25,6 +29,14 @@ while (cotinuidade)
 
         Tarefa tarefa = new Tarefa();
         tarefa.CadastrarTarefa(titulo, descricao);
+
+
+    }
+
+    else if (opcao == "2")
+    {
+        //listagem de tarefa
+        
 
 
     }
